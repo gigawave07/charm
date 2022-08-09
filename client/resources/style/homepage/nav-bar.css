@@ -1,0 +1,31 @@
+.nav-bar-wrapper {
+    height: 1000px;
+    border: 1px solid #707070;
+    opacity: 1;
+}
+
+.nav-bar-wrapper > img.overview-bg-img {
+    display: inline-block;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+}
+
+.nav-bar {
+    position: fixed;
+    transition: top 0.3s;
+}
+
+.nav-bar-wrapper .ant-menu {
+    background: transparent;
+}
+
+.nav-bar-wrapper .ant-menu-horizontal {
+    border-bottom: none;
+    color: white;
+    line-height: 80px;
+}
+
+.nav-bar-wrapper .ant-menu-title-content {
+    font-size: 20px;
+}

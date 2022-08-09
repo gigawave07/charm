@@ -1,0 +1,14 @@
+.capability-content {
+    height: 600px;
+    background-color: #EDEFF1;
+}
+.cate-item__hover-icon {
+    visibility: hidden;
+    padding: 0 5px;
+}
+.cate-item:hover + .cate-item__hover-icon {
+    visibility: visible;
+}
+.capability-content .ant-list-item {
+    justify-content: flex-start !important;
+}

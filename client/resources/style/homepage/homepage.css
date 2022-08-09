@@ -1,0 +1,16 @@
+@import "/resources/style/homepage/overview.css";
+@import "/resources/style/homepage/nav-bar.css";
+@import "/resources/style/homepage/capability.css";
+@import "/resources/style/homepage/projects.css";
+
+.overview{
+    height: 1000px;
+}
+
+.overview-content {
+    height: 920px;
+}
+
+.logo-img {
+    height: 80px
+}
