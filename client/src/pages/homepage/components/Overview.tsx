@@ -1,9 +1,18 @@
 import { Col, Menu, Row } from "antd";
-import { ReactElement, useEffect, useMemo, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
+import useHomePage, { ContentProps } from "../useHomePage";
 
+const overviewData: ContentProps = {
+	specializedFields: "BRAND, DEV, ECOM, MARKETING",
+	slogan: ["We unleash", "business potential"],
+	introduction:
+		"We create brand experiences which are memorable and distinct. Our experienced team create and develop brands with personality and resonance.",
+	conclusion: "Let's talk",
+};
 const Overview = (): ReactElement => {
 	const labels = ["Services", "Work", "About", "Blog", "Contact"];
 	const items = labels.map((item, i) => ({ label: item, key: `item-${i}` }));
+	const { makeContent } = useHomePage();
 
 	const [prevScrollPos, setPrevScrollPos] = useState(0);
 	const [visible, setVisible] = useState(true);
@@ -18,31 +27,6 @@ const Overview = (): ReactElement => {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, [prevScrollPos, visible, handleScroll]);
 
-	const overviewContent = useMemo(() => {
-		const specializedFields = <span className={"specialized-fields"}>BRAND, DEV, ECOM, MARKETING</span>;
-		const slogan = (
-			<span>
-				<p className={"heading__first-part"}>We unleash</p>
-				<p className={"heading__second-part"}>business potential</p>
-			</span>
-		);
-		const introduction = (
-			<p className={"introduction"}>
-				We create brand experiences which are memorable and distinct. Our experienced team create and develop brands
-				with personality and resonance.
-			</p>
-		);
-		const conclusion = <span className={"conclusion"}>Let&apos;s talk</span>;
-		return (
-			<>
-				<Row>{specializedFields}</Row>
-				<Row>{slogan}</Row>
-				<Row>{introduction}</Row>
-				<Row>{conclusion}</Row>
-			</>
-		);
-	}, []);
-
 	return (
 		<div className={"overview"}>
 			<Row>
@@ -56,7 +40,7 @@ const Overview = (): ReactElement => {
 					<Row>
 						<Col span={5} />
 						<Col span={12} className={"grid gap-10 content-center overview-content"}>
-							{overviewContent}
+							{makeContent(overviewData)}
 						</Col>
 					</Row>
 				</Col>

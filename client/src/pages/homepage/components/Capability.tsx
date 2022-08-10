@@ -1,6 +1,7 @@
 import { RightCircleOutlined } from "@ant-design/icons";
 import { Col, List, Row } from "antd";
 import { useMemo } from "react";
+import useHomePage, { ContentProps } from "../useHomePage";
 
 type ItemRender = {
 	title?: string;
@@ -11,42 +12,27 @@ const cateBrand: ItemRender[] = [
 	{ title: "BRAND" },
 	{ category: "Brand Strategy" },
 	{ category: "Logo & Name" },
-	{ category: "Identity & Collateral" }
+	{ category: "Identity & Collateral" },
 ];
 
 const cateDevelopment: ItemRender[] = [
 	{ title: "DEVELOPMENT" },
 	{ category: "eCommerce" },
 	{ category: "Web Development" },
-	{ category: "Mobile Apps" }
+	{ category: "Mobile Apps" },
 ];
 
 const cateMarketing: ItemRender[] = [{ title: "MARKETING" }, { category: "Digital" }, { category: "Market Research" }];
 
-const Capability = () => {
-	const capabilityContent = useMemo(() => {
-		const slogan = (
-			<span>
-				<p className={"heading__first-part"}>What are</p>
-				<p className={"heading__second-part"}>we capable of</p>
-			</span>
-		);
-		const introduction = (
-			<p className={"introduction"}>
-				By focusing on design as an enabler and putting a huge emphasis on our clients as co-producers, we create
-				innovative, sustainable marketing that enhances brand experience and user engagement.
-			</p>
-		);
-		const conclusion = <span className={"conclusion"}>Our process</span>;
-		return (
-			<>
-				<Row>{slogan}</Row>
-				<Row>{introduction}</Row>
-				<Row>{conclusion}</Row>
-			</>
-		);
-	}, []);
+const capabilityContent: ContentProps = {
+	conclusion: "Our process",
+	introduction:
+		"By focusing on design as an enabler and putting a huge emphasis on our clients as co-producers, we create innovative, sustainable marketing that enhances brand experience and user engagement.",
+	slogan: ["What are", "we capable of"],
+};
 
+const Capability = () => {
+	const { makeContent } = useHomePage();
 	const itemRenderer = (item: ItemRender) => {
 		const isTitle = !!item.title;
 		return (
@@ -57,7 +43,7 @@ const Capability = () => {
 						<RightCircleOutlined
 							style={{
 								color: "#506473",
-								verticalAlign: "middle"
+								verticalAlign: "middle",
 							}}
 						/>
 					</span>
@@ -93,7 +79,7 @@ const Capability = () => {
 					<Row>
 						<Col span={5} />
 						<Col span={12} className={"grid gap-10 content-center capability-content"}>
-							{capabilityContent}
+							{makeContent(capabilityContent)}
 						</Col>
 					</Row>
 				</Col>
