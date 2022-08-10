@@ -55,7 +55,7 @@ const Overview = (): ReactElement => {
 					<StyleNavbar visible={visible}>
 						<Menu items={items} mode="horizontal" />
 					</StyleNavbar>
-					<StyleOverviewBackgroundImg src="/resources/images/Spaniel01_gradient.png" alt="logo" />
+					<StyleOverviewBackgroundImg src="/resources/images/Christina.png" alt="logo" />
 				</StyleColNavbarWrapper>
 			</Row>
 		</StyleOverview>
