@@ -9,8 +9,9 @@ const overviewData: ContentProps = {
 		"We create brand experiences which are memorable and distinct. Our experienced team create and develop brands with personality and resonance.",
 	conclusion: "Let's talk",
 };
+const labels = ["Services", "Work", "About", "Blog", "Contact"];
+
 const Overview = (): ReactElement => {
-	const labels = ["Services", "Work", "About", "Blog", "Contact"];
 	const items = labels.map((item, i) => ({ label: item, key: `item-${i}` }));
 	const { makeContent } = useHomePage();
 

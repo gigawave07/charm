@@ -4,6 +4,8 @@ import style from "styled-components";
 import useHomePage from "../useHomePage";
 
 const slogan = ["Some of our", "recent projects"];
+const labels = ["All", "Branding", "Web Design", "Digital Marketing"];
+
 const StyleWrapper = style.div.attrs({
 	className: "grid gap-10 content-center ",
 })`
@@ -11,8 +13,6 @@ const StyleWrapper = style.div.attrs({
 `;
 const Projects = () => {
 	const { makeSlogan } = useHomePage();
-
-	const labels = ["All", "Branding", "Web Design", "Digital Marketing"];
 	const items = labels.map((item, i) => ({ label: item, key: `item-${i}` }));
 	return (
 		<StyleWrapper>

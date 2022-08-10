@@ -1,3 +1,5 @@
+import style from "styled-components";
+import styled, { css } from "styled-components";
 import { RightCircleOutlined } from "@ant-design/icons";
 import { Col, List, Row } from "antd";
 import { useMemo } from "react";
@@ -30,6 +32,24 @@ const capabilityContent: ContentProps = {
 		"By focusing on design as an enabler and putting a huge emphasis on our clients as co-producers, we create innovative, sustainable marketing that enhances brand experience and user engagement.",
 	slogan: ["What are", "we capable of"],
 };
+
+const capabilityStyle = css`
+	height: 600px;
+	background-color: #edeff1;
+`;
+const StyleWrapper = style.div`
+  ${capabilityStyle}
+  .ant-list-item {
+    justify-content: flex-start !important;
+  }
+`;
+
+const StyleCol = styled(Col).attrs({
+	className: "grid gap-10 content-center",
+	span: 12,
+})`
+	${capabilityStyle}
+`;
 
 const Capability = () => {
 	const { makeContent } = useHomePage();
@@ -73,21 +93,17 @@ const Capability = () => {
 	}, []);
 
 	return (
-		<div className={"capability-content"}>
+		<StyleWrapper>
 			<Row>
 				<Col span={12}>
 					<Row>
 						<Col span={5} />
-						<Col span={12} className={"grid gap-10 content-center capability-content"}>
-							{makeContent(capabilityContent)}
-						</Col>
+						<StyleCol>{makeContent(capabilityContent)}</StyleCol>
 					</Row>
 				</Col>
-				<Col span={12} className={"grid gap-10 content-center capability-content"}>
-					{capabilityCategory}
-				</Col>
+				<StyleCol>{capabilityCategory}</StyleCol>
 			</Row>
-		</div>
+		</StyleWrapper>
 	);
 };
 
