@@ -1,9 +1,8 @@
-import style from "styled-components";
-import styled, { css } from "styled-components";
 import { RightCircleOutlined } from "@ant-design/icons";
 import { Col, List, Row } from "antd";
 import { useMemo } from "react";
-import useHomePage, { ContentProps } from "../useHomePage";
+import useHomePage, { ContentProps } from "../../useHomePage";
+import { StyleCateItem, StyleCateItemHoverIcon, StyleCol, StyleListItem, StyleWrapper } from "./StyleCapability";
 
 type ItemRender = {
 	title?: string;
@@ -33,42 +32,24 @@ const capabilityContent: ContentProps = {
 	slogan: ["What are", "we capable of"],
 };
 
-const capabilityStyle = css`
-	height: 600px;
-	background-color: #edeff1;
-`;
-const StyleWrapper = style.div`
-  ${capabilityStyle}
-  .ant-list-item {
-    justify-content: flex-start !important;
-  }
-`;
-
-const StyleCol = styled(Col).attrs({
-	className: "grid gap-10 content-center",
-	span: 12,
-})`
-	${capabilityStyle}
-`;
-
 const Capability = () => {
 	const { makeContent } = useHomePage();
 	const itemRenderer = (item: ItemRender) => {
 		const isTitle = !!item.title;
 		return (
-			<List.Item className={isTitle ? "font-bold text-base" : "text-sm"}>
-				<span className={"cate-item"}>{isTitle ? item.title : item.category} </span>
+			<StyleListItem isTitle={isTitle}>
+				<StyleCateItem>{isTitle ? item.title : item.category}</StyleCateItem>
 				{!isTitle && (
-					<span className={"cate-item__hover-icon"}>
+					<StyleCateItemHoverIcon>
 						<RightCircleOutlined
 							style={{
 								color: "#506473",
 								verticalAlign: "middle",
 							}}
 						/>
-					</span>
+					</StyleCateItemHoverIcon>
 				)}
-			</List.Item>
+			</StyleListItem>
 		);
 	};
 

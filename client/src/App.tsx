@@ -1,5 +1,5 @@
 import "antd/dist/antd.css";
-import Capability from "./pages/homepage/components/Capability";
+import Capability from "./pages/homepage/components/capability/Capability";
 import Overview from "./pages/homepage/components/Overview";
 import Projects from "./pages/homepage/components/Projects";
 

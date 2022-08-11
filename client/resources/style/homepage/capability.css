@@ -1,8 +1,0 @@
-.cate-item__hover-icon {
-    visibility: hidden;
-    padding: 0 5px;
-}
-
-.cate-item:hover + .cate-item__hover-icon {
-    visibility: visible;
-}

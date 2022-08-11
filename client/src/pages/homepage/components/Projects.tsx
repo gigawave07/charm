@@ -7,7 +7,7 @@ const slogan = ["Some of our", "recent projects"];
 const labels = ["All", "Branding", "Web Design", "Digital Marketing"];
 
 const StyleWrapper = style.div.attrs({
-	className: "grid gap-10 content-center ",
+	className: "grid gap-10 content-center",
 })`
   height: 1000px;
 `;
