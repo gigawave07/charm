@@ -1,5 +1,5 @@
 import { Col, Menu, Row } from "antd";
-import { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import useHomePage, { ContentProps } from "../../useHomePage";
 import {
 	StyleColNavbarWrapper,
@@ -7,7 +7,9 @@ import {
 	StyleLogoImage,
 	StyleNavbar,
 	StyleOverview,
+	StyleOverviewBackground,
 	StyleOverviewBackgroundImg,
+	StyleSlider,
 } from "./StyleOverview";
 
 const overviewData: ContentProps = {
@@ -18,6 +20,8 @@ const overviewData: ContentProps = {
 	conclusion: "Let's talk",
 };
 const labels = ["Services", "Work", "About", "Blog", "Contact"];
+const images = ["Christina.png", "ChristmasChristina.png"];
+const imageSlideDelay = 3 * 1000;
 
 const Overview = (): ReactElement => {
 	const items = labels.map((item, i) => ({ label: item, key: `item-${i}` }));
@@ -35,6 +39,24 @@ const Overview = (): ReactElement => {
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, [prevScrollPos, visible, handleScroll]);
+
+	const [index, setIndex] = React.useState(0);
+	const timeoutRef = React.useRef(0);
+
+	function resetTimeout() {
+		if (timeoutRef.current) {
+			clearTimeout(timeoutRef.current);
+		}
+	}
+
+	React.useEffect(() => {
+		resetTimeout();
+		timeoutRef.current = setTimeout(
+			() => setIndex(prevIndex => (prevIndex === images.length - 1 ? 0 : prevIndex + 1)),
+			imageSlideDelay
+		);
+		return () => resetTimeout();
+	}, [index]);
 
 	return (
 		<StyleOverview>
@@ -55,7 +77,13 @@ const Overview = (): ReactElement => {
 					<StyleNavbar visible={visible}>
 						<Menu items={items} mode="horizontal" />
 					</StyleNavbar>
-					<StyleOverviewBackgroundImg src="/resources/images/Christina.png" alt="logo" />
+					<StyleOverviewBackground>
+						<StyleSlider index={index}>
+							{images.map((_, index) => (
+								<StyleOverviewBackgroundImg key={index} src={`/resources/images/${images[index]}`} alt="logo" />
+							))}
+						</StyleSlider>
+					</StyleOverviewBackground>
 				</StyleColNavbarWrapper>
 			</Row>
 		</StyleOverview>

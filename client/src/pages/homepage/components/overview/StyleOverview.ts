@@ -4,10 +4,14 @@ import { Col } from "antd";
 type StyleNavbarProps = {
 	visible: boolean;
 };
+type StyleDivOverviewBackground = {
+	index: number;
+};
 export const StyleNavbar = styled.div<StyleNavbarProps>`
 	position: fixed;
 	transition: top 0.3s;
 	top: ${({ visible }) => (visible ? "0" : "-60px")};
+	z-index: 2;
 `;
 export const StyleOverview = styled.div`
 	height: 1000px;
@@ -46,4 +50,13 @@ export const StyleOverviewBackgroundImg = styled.img`
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
+`;
+export const StyleOverviewBackground = styled.div`
+	overflow: hidden;
+`;
+export const StyleSlider = styled.div<StyleDivOverviewBackground>`
+	white-space: nowrap;
+	transition: ease 1000ms;
+	height: 100%;
+	transform: ${({ index }) => `translate3d(${-index * 100}%, 0, 0)`};
 `;
