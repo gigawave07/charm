@@ -1,5 +1,12 @@
 import { useCallback } from "react";
 import { Row } from "antd";
+import {
+	StyleConclusion,
+	StyleFirstPart,
+	StyleIntro,
+	StyleSecondPart,
+	StyleSpecializedField,
+} from "./components/StyleHomePage";
 
 export type ContentProps = {
 	specializedFields?: string;
@@ -11,8 +18,8 @@ export default function useHomePage() {
 	const makeSlogan = useCallback(
 		([first, second]: string[]) => (
 			<span>
-				<p className={"heading__first-part"}>{first}</p>
-				<p className={"heading__second-part"}>{second}</p>
+				<StyleFirstPart>{first}</StyleFirstPart>
+				<StyleSecondPart>{second}</StyleSecondPart>
 			</span>
 		),
 		[]
@@ -22,15 +29,15 @@ export default function useHomePage() {
 			<>
 				{specializedFields && (
 					<Row>
-						<span className={"specialized-fields"}>{specializedFields}</span>
+						<StyleSpecializedField>{specializedFields}</StyleSpecializedField>
 					</Row>
 				)}
 				<Row>{makeSlogan(slogan)}</Row>
 				<Row>
-					<p className={"introduction"}>{introduction}</p>
+					<StyleIntro>{introduction}</StyleIntro>
 				</Row>
 				<Row>
-					<span className={"conclusion"}>{conclusion}</span>
+					<StyleConclusion>{conclusion}</StyleConclusion>
 				</Row>
 			</>
 		);

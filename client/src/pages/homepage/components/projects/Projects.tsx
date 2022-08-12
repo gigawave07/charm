@@ -1,15 +1,15 @@
 import { Col, Menu, Row } from "antd";
 import React from "react";
-import style from "styled-components";
-import useHomePage from "../useHomePage";
+import styled from "styled-components";
+import useHomePage from "../../useHomePage";
 
 const slogan = ["Some of our", "recent projects"];
 const labels = ["All", "Branding", "Web Design", "Digital Marketing"];
 
-const StyleWrapper = style.div.attrs({
+const StyleWrapper = styled.div.attrs({
 	className: "grid gap-10 content-center",
 })`
-  height: 1000px;
+	height: 1000px;
 `;
 const Projects = () => {
 	const { makeSlogan } = useHomePage();

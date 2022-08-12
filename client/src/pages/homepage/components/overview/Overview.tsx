@@ -1,6 +1,14 @@
 import { Col, Menu, Row } from "antd";
 import { ReactElement, useEffect, useState } from "react";
-import useHomePage, { ContentProps } from "../useHomePage";
+import useHomePage, { ContentProps } from "../../useHomePage";
+import {
+	StyleColNavbarWrapper,
+	StyleColOverview,
+	StyleLogoImage,
+	StyleNavbar,
+	StyleOverview,
+	StyleOverviewBackgroundImg,
+} from "./StyleOverview";
 
 const overviewData: ContentProps = {
 	specializedFields: "BRAND, DEV, ECOM, MARKETING",
@@ -29,30 +37,28 @@ const Overview = (): ReactElement => {
 	}, [prevScrollPos, visible, handleScroll]);
 
 	return (
-		<div className={"overview"}>
+		<StyleOverview>
 			<Row>
 				<Col span={12}>
 					<Row>
 						<Col span={2} />
 						<Col>
-							<img src="/resources/images/logo.png" alt="logo" className={"logo-img"} />
+							<StyleLogoImage src="/resources/images/logo.png" alt="logo" />
 						</Col>
 					</Row>
 					<Row>
 						<Col span={5} />
-						<Col span={12} className={"grid gap-10 content-center overview-content"}>
-							{makeContent(overviewData)}
-						</Col>
+						<StyleColOverview span={12}>{makeContent(overviewData)}</StyleColOverview>
 					</Row>
 				</Col>
-				<Col span={12} className={"flex justify-center nav-bar-wrapper"}>
-					<div className={"nav-bar"} style={{ top: visible ? "0" : "-60px" }}>
+				<StyleColNavbarWrapper span={12}>
+					<StyleNavbar visible={visible}>
 						<Menu items={items} mode="horizontal" />
-					</div>
-					<img src="/resources/images/Spaniel01_gradient.png" alt="logo" className={"overview-bg-img"} />
-				</Col>
+					</StyleNavbar>
+					<StyleOverviewBackgroundImg src="/resources/images/Spaniel01_gradient.png" alt="logo" />
+				</StyleColNavbarWrapper>
 			</Row>
-		</div>
+		</StyleOverview>
 	);
 };
 

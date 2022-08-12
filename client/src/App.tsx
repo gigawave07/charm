@@ -1,14 +1,10 @@
 import "antd/dist/antd.css";
-import Capability from "./pages/homepage/components/capability/Capability";
-import Overview from "./pages/homepage/components/Overview";
-import Projects from "./pages/homepage/components/Projects";
+import { HomePage } from "./pages/homepage";
 
 function App() {
 	return (
 		<div className="App">
-			<Overview />
-			<Capability />
-			<Projects />
+			<HomePage />
 		</div>
 	);
 }

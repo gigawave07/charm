@@ -79,10 +79,10 @@ const Capability = () => {
 				<Col span={12}>
 					<Row>
 						<Col span={5} />
-						<StyleCol>{makeContent(capabilityContent)}</StyleCol>
+						<StyleCol span={12}>{makeContent(capabilityContent)}</StyleCol>
 					</Row>
 				</Col>
-				<StyleCol>{capabilityCategory}</StyleCol>
+				<StyleCol span={12}>{capabilityCategory}</StyleCol>
 			</Row>
 		</StyleWrapper>
 	);
