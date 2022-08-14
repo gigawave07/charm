@@ -1,16 +1,8 @@
-import { Col, Menu, Row } from "antd";
 import React, { ReactElement, useEffect, useState } from "react";
 import useHomePage, { ContentProps } from "../../useHomePage";
-import {
-	StyleColNavbarWrapper,
-	StyleColOverview,
-	StyleLogoImage,
-	StyleNavbar,
-	StyleOverview,
-	StyleOverviewBackground,
-	StyleOverviewBackgroundImg,
-	StyleSlider,
-} from "./StyleOverview";
+import { OverviewBackground } from "./OverviewBackground";
+import { StyleColNavbarWrapper, StyleColOverview, StyleLogoImage, StyleNavbar, StyleOverview } from "./StyleOverview";
+import { Col, Menu, Row } from "antd";
 
 const overviewData: ContentProps = {
 	specializedFields: "BRAND, DEV, ECOM, MARKETING",
@@ -20,8 +12,6 @@ const overviewData: ContentProps = {
 	conclusion: "Let's talk",
 };
 const labels = ["Services", "Work", "About", "Blog", "Contact"];
-const images = ["Christina.png", "ChristmasChristina.png"];
-const imageSlideDelay = 3 * 1000;
 
 const Overview = (): ReactElement => {
 	const items = labels.map((item, i) => ({ label: item, key: `item-${i}` }));
@@ -40,50 +30,26 @@ const Overview = (): ReactElement => {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, [prevScrollPos, visible, handleScroll]);
 
-	const [index, setIndex] = React.useState(0);
-	const timeoutRef = React.useRef(0);
-
-	function resetTimeout() {
-		if (timeoutRef.current) {
-			clearTimeout(timeoutRef.current);
-		}
-	}
-
-	React.useEffect(() => {
-		resetTimeout();
-		timeoutRef.current = setTimeout(
-			() => setIndex(prevIndex => (prevIndex === images.length - 1 ? 0 : prevIndex + 1)),
-			imageSlideDelay
-		);
-		return () => resetTimeout();
-	}, [index]);
-
 	return (
 		<StyleOverview>
 			<Row>
 				<Col span={12}>
 					<Row>
-						<Col span={2} />
-						<Col>
+						<Col offset={2}>
 							<StyleLogoImage src="/resources/images/logo.png" alt="logo" />
 						</Col>
 					</Row>
 					<Row>
-						<Col span={5} />
-						<StyleColOverview span={12}>{makeContent(overviewData)}</StyleColOverview>
+						<StyleColOverview offset={5} span={12}>
+							{makeContent(overviewData)}
+						</StyleColOverview>
 					</Row>
 				</Col>
 				<StyleColNavbarWrapper span={12}>
 					<StyleNavbar visible={visible}>
 						<Menu items={items} mode="horizontal" />
 					</StyleNavbar>
-					<StyleOverviewBackground>
-						<StyleSlider index={index}>
-							{images.map((_, index) => (
-								<StyleOverviewBackgroundImg key={index} src={`/resources/images/${images[index]}`} alt="logo" />
-							))}
-						</StyleSlider>
-					</StyleOverviewBackground>
+					<OverviewBackground />
 				</StyleColNavbarWrapper>
 			</Row>
 		</StyleOverview>

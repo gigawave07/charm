@@ -17,9 +17,8 @@ export const StyleWrapper = styled.div`
 	}
 `;
 
-export const StyleCol = styled(Col).attrs({
-	className: "grid gap-10 content-center",
-})`
+export const StyleCol = styled(Col)`
+	${tw`grid gap-10 content-center`}
 	${capabilityStyle}
 `;
 

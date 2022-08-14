@@ -2,14 +2,16 @@ import { Col, Menu, Row } from "antd";
 import React from "react";
 import styled from "styled-components";
 import useHomePage from "../../useHomePage";
+import tw from "twin.macro";
 
 const slogan = ["Some of our", "recent projects"];
 const labels = ["All", "Branding", "Web Design", "Digital Marketing"];
 
-const StyleWrapper = styled.div.attrs({
-	className: "grid gap-10 content-center",
-})`
+const StyleWrapper = styled.div`
+	${tw`grid gap-10 content-center`}
 	height: 1000px;
+	background-image: url("./resources/images/Christina.gif");
+	background-size: cover;
 `;
 const Projects = () => {
 	const { makeSlogan } = useHomePage();
@@ -19,16 +21,14 @@ const Projects = () => {
 			<Row>
 				<Col span={12}>
 					<Row>
-						<Col span={5} />
-						<Col>{makeSlogan(slogan)}</Col>
+						<Col offset={5}>{makeSlogan(slogan)}</Col>
 					</Row>
 				</Col>
 			</Row>
 			<Row>
 				<Col span={12}>
 					<Row>
-						<Col span={5} />
-						<Col>
+						<Col offset={5}>
 							<Menu items={items} mode="horizontal" />
 						</Col>
 					</Row>

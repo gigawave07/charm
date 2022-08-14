@@ -78,8 +78,9 @@ const Capability = () => {
 			<Row>
 				<Col span={12}>
 					<Row>
-						<Col span={5} />
-						<StyleCol span={12}>{makeContent(capabilityContent)}</StyleCol>
+						<StyleCol offset={5} span={12}>
+							{makeContent(capabilityContent)}
+						</StyleCol>
 					</Row>
 				</Col>
 				<StyleCol span={12}>{capabilityCategory}</StyleCol>
