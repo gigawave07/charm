@@ -1,7 +1,8 @@
 import { Col, Menu, Row } from "antd";
 import React from "react";
-import styled from "styled-components";
+import "./Project.css";
 import useHomePage from "../../hooks/useHomePage";
+import styled from "styled-components";
 import tw from "twin.macro";
 
 const slogan = ["Some of our", "recent projects"];
@@ -20,6 +21,7 @@ const StyleInnerContainer = styled.div`
 	margin: 0 50px;
 	padding: 50px 0;
 `;
+
 const Projects = () => {
 	const { makeSlogan } = useHomePage();
 	const items = labels.map((item, i) => ({ label: item, key: `item-${i}` }));
@@ -35,12 +37,13 @@ const Projects = () => {
 				</Row>
 				<Row>
 					<Col span={12}>
-						<Row>
+						<Row className={"mb-3"}>
 							<Col offset={5}>
 								<Menu items={items} mode="horizontal" />
 							</Col>
 						</Row>
 					</Col>
+					<Col />
 				</Row>
 			</StyleInnerContainer>
 		</StyleWrapper>

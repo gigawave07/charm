@@ -1,0 +1,63 @@
+.contenedor {
+  perspective: 500px;
+  perspective-origin: 50% 50%;
+}
+
+.cube, .cube .card{
+  height: 290px;
+  width: 290px;
+}
+
+.cube {
+  transform-style: preserve-3d;
+
+  transform: rotateX(-30deg) rotateY(-30deg);
+
+  margin: 150px auto;
+
+  animation: giro 20s infinite linear;
+}
+
+.cube .card {
+  position: absolute;
+  border: 5px solid #ccc;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+.cube:hover{
+  animation-play-state: paused;
+}
+.cube:hover .card{
+  opacity: 1;
+  transition: 0.2s;
+}
+
+.cube .card:nth-child(1) {
+  transform: translateZ(150px);
+}
+.cube .card:nth-child(2) {
+  transform: rotateY(180deg) translateZ(144px);
+}
+.cube .card:nth-child(3) {
+  transform: rotateY(-90deg) translateZ(144px);
+}
+.cube .card:nth-child(4) {
+  transform: rotateY(90deg) translateZ(144px);
+}
+.cube .card:nth-child(5) {
+  transform: rotateX(90deg) translateZ(144px);
+}
+.cube .card:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(150px);
+}
+
+@keyframes giro {
+  0% { transform: rotateX(-45deg) rotateY(0deg); }
+  50% { transform: rotateX(45deg) rotateY(360deg); }
+  100% { transform: rotateX(-45deg) rotateY(720deg); }
+}
+
+@keyframes giro360 {
+    0% { transform: rotateX(  0deg) rotateY(  0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}
