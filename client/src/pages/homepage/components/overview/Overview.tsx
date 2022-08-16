@@ -3,6 +3,7 @@ import useHomePage, { ContentProps } from "../../useHomePage";
 import { OverviewBackground } from "./OverviewBackground";
 import { StyleColNavbarWrapper, StyleColOverview, StyleLogoImage, StyleNavbar, StyleOverview } from "./StyleOverview";
 import { Col, Menu, Row } from "antd";
+import { Link } from "react-router-dom";
 
 const overviewData: ContentProps = {
 	specializedFields: "BRAND, DEV, ECOM, MARKETING",
@@ -14,7 +15,7 @@ const overviewData: ContentProps = {
 const labels = ["Services", "Work", "About", "Blog", "Contact"];
 
 const Overview = (): ReactElement => {
-	const items = labels.map((item, i) => ({ label: item, key: `item-${i}` }));
+	const items = labels.map((item, i) => ({ label: item, key: `item-${i}`, path: `/${item}` }));
 	const { makeContent } = useHomePage();
 
 	const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -47,7 +48,13 @@ const Overview = (): ReactElement => {
 				</Col>
 				<StyleColNavbarWrapper span={12}>
 					<StyleNavbar visible={visible}>
-						<Menu items={items} mode="horizontal" />
+						<Menu mode="horizontal">
+							{items.map(({ label, path }) => (
+								<Menu.Item key={path}>
+									<Link to={`${path}`}>{label}</Link>
+								</Menu.Item>
+							))}
+						</Menu>
 					</StyleNavbar>
 					<OverviewBackground />
 				</StyleColNavbarWrapper>

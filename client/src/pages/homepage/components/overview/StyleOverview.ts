@@ -40,7 +40,13 @@ export const StyleColNavbarWrapper = styled(Col)`
 	}
 
 	& .ant-menu-title-content {
-		font-size: 20px;
+		font-size: 22px;
+		font-weight: bold;
+
+		& a {
+			-webkit-text-stroke: 0.5px whitesmoke;
+			color: crimson;
+		}
 	}
 `;
 export const StyleLogoImage = styled.img`
