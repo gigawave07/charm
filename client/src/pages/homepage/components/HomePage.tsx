@@ -1,11 +1,12 @@
-import { Capability, Overview, Projects } from "../index";
+import React from "react";
+import Navbar from "../../navbar";
+import { Outlet } from "react-router-dom";
 
 const HomePage = () => {
 	return (
 		<>
-			<Overview />
-			<Capability />
-			<Projects />
+			<Navbar />
+			<Outlet />
 		</>
 	);
 };

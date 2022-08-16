@@ -17,18 +17,13 @@ export const StyleNavbar = styled.div<StyleNavbarProps>`
 `;
 export const StyleOverview = styled.div`
 	height: 1000px;
+	margin-top: -100px;
 `;
 export const StyleColOverview = styled(Col)`
 	${tw`grid gap-10 content-center`}
 	height: 920px;
 `;
-export const StyleColNavbarWrapper = styled(Col)`
-	${tw`flex justify-center`}
-
-	height: 1000px;
-	border: 1px solid #707070;
-	opacity: 1;
-
+export const StyleColNavbarWrapper2 = styled(Col)`
 	& .ant-menu {
 		background: transparent;
 	}
@@ -40,7 +35,7 @@ export const StyleColNavbarWrapper = styled(Col)`
 	}
 
 	& .ant-menu-title-content {
-		font-size: 22px;
+		font-size: 20px;
 		font-weight: bold;
 
 		& a {
@@ -49,12 +44,14 @@ export const StyleColNavbarWrapper = styled(Col)`
 		}
 	}
 `;
+export const StyleColOverviewBackground = styled(Col)`
+	height: 1000px;
+`;
 export const StyleLogoImage = styled.img`
 	height: 80px;
 `;
 export const StyleOverviewBackgroundImg = styled.img`
 	display: inline-block;
-	height: 100%;
 	object-fit: cover;
 	object-position: center;
 	width: 100%;
