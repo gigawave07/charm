@@ -6,7 +6,7 @@ import {
 	StyleIntro,
 	StyleSecondPart,
 	StyleSpecializedField,
-} from "./components/StyleHomePage";
+} from "../styles/StyleHomePage";
 
 export type ContentProps = {
 	specializedFields?: string;

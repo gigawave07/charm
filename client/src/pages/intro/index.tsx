@@ -1,4 +1,4 @@
-import { Capability, Overview, Projects } from "../../pages/homepage";
+import { Capability, Overview, Projects } from "../homepage";
 
 const Intro = () => {
 	return (

@@ -1,9 +1,9 @@
 import { Col, Menu, Row } from "antd";
-import { StyleColNavbarWrapper2, StyleLogoImage, StyleNavbar } from "../homepage/components/overview/StyleOverview";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { StyleColNavbarWrapper, StyleLogoImage, StyleNavbar } from "./StyleNavbar";
 
-const labels = ["Services", "Work", "About", "Blog", "Contact"];
+const labels = ["Characters", "Work", "About", "Blog", "Contact"];
 
 const Navbar = () => {
 	const items = labels.map((item, i) => ({ label: item, key: `item-${i}`, path: `/${item}` }));
@@ -30,7 +30,7 @@ const Navbar = () => {
 					</div>
 				</Link>
 			</Col>
-			<StyleColNavbarWrapper2>
+			<StyleColNavbarWrapper>
 				<StyleNavbar visible={visible}>
 					<Menu mode="horizontal">
 						{items.map(({ label, path }) => (
@@ -40,7 +40,7 @@ const Navbar = () => {
 						))}
 					</Menu>
 				</StyleNavbar>
-			</StyleColNavbarWrapper2>
+			</StyleColNavbarWrapper>
 		</Row>
 	);
 };

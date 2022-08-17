@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import useHomePage, { ContentProps } from "../../useHomePage";
+import useHomePage, { ContentProps } from "../../hooks/useHomePage";
 import { OverviewBackground } from "./OverviewBackground";
 import { StyleColOverview, StyleColOverviewBackground, StyleOverview } from "./StyleOverview";
 import { Row } from "antd";

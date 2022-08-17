@@ -2,10 +2,6 @@ import styled, { css } from "styled-components";
 import { Col, List } from "antd";
 import tw from "twin.macro";
 
-type StyleListItemProps = {
-	isTitle: boolean;
-};
-
 const capabilityStyle = css`
 	height: 600px;
 	background-color: #edeff1;
@@ -27,7 +23,9 @@ export const StyleCateItemHoverIcon = styled.span`
 	visibility: hidden;
 	padding: 0 5px;
 `;
-export const StyleListItem = styled(List.Item)<StyleListItemProps>`
+export const StyleListItem = styled(List.Item)<{
+	isTitle: boolean;
+}>`
 	${({ isTitle }) => (isTitle ? tw`font-bold text-base` : tw`text-sm`)}
 	${StyleCateItem}:hover + ${StyleCateItemHoverIcon} {
 		visibility: visible;

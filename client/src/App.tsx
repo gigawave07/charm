@@ -1,6 +1,6 @@
 import "antd/dist/antd.css";
 import React from "react";
-import { HomepageRoute } from "./routes/homepage";
+import HomepageRoute from "./routes";
 
 function App() {
 	return (

@@ -1,7 +1,7 @@
 import { Col, Menu, Row } from "antd";
 import React from "react";
 import styled from "styled-components";
-import useHomePage from "../../useHomePage";
+import useHomePage from "../../hooks/useHomePage";
 import tw from "twin.macro";
 
 const slogan = ["Some of our", "recent projects"];

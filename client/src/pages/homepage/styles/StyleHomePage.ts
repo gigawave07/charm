@@ -3,13 +3,13 @@ import styled from "styled-components";
 export const StyleFirstPart = styled.p`
 	text-align: left;
 	font: normal normal bold 48px/57px ITC Avant Garde Gothic Pro;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 	color: #19293a;
 `;
 export const StyleSecondPart = styled.p`
 	text-align: left;
 	font: normal normal bold 48px/57px ITC Avant Garde Gothic Pro;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 	color: #506473;
 `;
 export const StyleSpecializedField = styled.span`
@@ -22,14 +22,14 @@ export const StyleSpecializedField = styled.span`
 export const StyleIntro = styled.p`
 	text-align: left;
 	font: normal normal normal 21px/38px Open Sans;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 	color: #506473;
 	opacity: 1;
 `;
 export const StyleConclusion = styled.span`
 	text-align: left;
 	font: normal normal 600 20px/27px Open Sans;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 	color: #19293a;
 	opacity: 1;
 
