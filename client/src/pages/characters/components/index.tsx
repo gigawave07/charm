@@ -1,14 +1,15 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import React from "react";
+import { Sidebar } from "../../../shared/components";
 
 export const Characters = () => {
 	return (
-		<>
+		<div className={"flex"}>
+			<Sidebar />
 			<div>
-				Characters <Link to={`Overview`}>Overview</Link> | <Link to={`Management`}>Management</Link>
+				<Outlet />
 			</div>
-			<Outlet />
-		</>
+		</div>
 	);
 };
 
