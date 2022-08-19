@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import useHomePage, { ContentProps } from "../../hooks/useHomePage";
-import { OverviewBackground } from "./OverviewBackground";
-import { StyleColOverview, StyleColOverviewBackground, StyleOverview } from "./StyleOverview";
+import { OutlineBackground } from "./OutlineBackground";
+import { StyleColOverview, StyleColOutlineBackground, Styles } from "./styles";
 import { Row } from "antd";
 
 const overviewData: ContentProps = {
@@ -17,16 +17,16 @@ const Overview = (): ReactElement => {
 
 	return (
 		<>
-			<StyleOverview>
+			<Styles>
 				<Row>
 					<StyleColOverview offset={2} span={8}>
 						{makeContent(overviewData)}
 					</StyleColOverview>
-					<StyleColOverviewBackground offset={2} span={12}>
-						<OverviewBackground />
-					</StyleColOverviewBackground>
+					<StyleColOutlineBackground offset={2} span={12}>
+						<OutlineBackground />
+					</StyleColOutlineBackground>
 				</Row>
-			</StyleOverview>
+			</Styles>
 		</>
 	);
 };

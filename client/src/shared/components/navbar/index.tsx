@@ -1,7 +1,7 @@
 import { Col, Menu, Row } from "antd";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { StyleColNavbarWrapper, StyleLogoImage, StyleNavbar } from "./StyleNavbar";
+import { StyleColNavbarWrapper, StyleLogoImage, Styles } from "./styles";
 
 const labels = ["Characters", "Work", "About", "Blog", "Contact"];
 
@@ -31,7 +31,7 @@ const Navbar = () => {
 				</Link>
 			</Col>
 			<StyleColNavbarWrapper>
-				<StyleNavbar visible={visible}>
+				<Styles visible={visible}>
 					<Menu mode="horizontal">
 						{items.map(({ label, path }) => (
 							<Menu.Item key={path}>
@@ -39,7 +39,7 @@ const Navbar = () => {
 							</Menu.Item>
 						))}
 					</Menu>
-				</StyleNavbar>
+				</Styles>
 			</StyleColNavbarWrapper>
 		</Row>
 	);

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { StyleOverviewBackground, StyleOverviewBackgroundImg, StyleSlider } from "./StyleOverview";
+import { StyleOutlineBackground, StyleOutlineBackgroundImg, StyleSlider } from "./styles";
 import { shuffle } from "lodash";
 
-export function OverviewBackground() {
+export function OutlineBackground() {
 	const [state, setState] = useState({
 		images: ["Maho.jpg", "Kokkoro.jpg", "ChristmasChristina.png", "Hatsune.jpg", "Yui.jpg", "Kyaru.png"],
 		index: 0,
@@ -52,16 +52,16 @@ export function OverviewBackground() {
 	}, [state.images]);
 
 	return (
-		<StyleOverviewBackground>
+		<StyleOutlineBackground>
 			<StyleSlider
 				transLateVal={-state.index * 100}
 				transition={state.needTransition}
 				onTransitionEnd={handleSliderTranslateEnd}
 			>
 				{state.images.map((item, i) => (
-					<StyleOverviewBackgroundImg key={i} src={`/resources/images/${item}`} alt="logo" />
+					<StyleOutlineBackgroundImg key={i} src={`/resources/images/${item}`} alt="logo" />
 				))}
 			</StyleSlider>
-		</StyleOverviewBackground>
+		</StyleOutlineBackground>
 	);
 }

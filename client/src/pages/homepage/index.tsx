@@ -13,6 +13,6 @@ const HomePage = () => {
 
 export default HomePage;
 
-export { default as Overview } from "./components/overview/Overview";
-export { default as Capability } from "./components/capability/Capability";
-export { default as Projects } from "./components/projects/Projects";
+export { default as Overview } from "./components/outline";
+export { default as Capability } from "./components/capability";
+export { default as Projects } from "./components/projects";

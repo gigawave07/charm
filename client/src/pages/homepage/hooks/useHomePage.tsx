@@ -1,12 +1,6 @@
 import { useCallback } from "react";
 import { Row } from "antd";
-import {
-	StyleConclusion,
-	StyleFirstPart,
-	StyleIntro,
-	StyleSecondPart,
-	StyleSpecializedField,
-} from "../styles/StyleHomePage";
+import { StyleConclusion, StyleFirstPart, StyleIntro, StyleSecondPart, StyleSpecializedField } from "../styles";
 
 export type ContentProps = {
 	specializedFields?: string;

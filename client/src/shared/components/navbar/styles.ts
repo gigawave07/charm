@@ -22,7 +22,7 @@ export const StyleColNavbarWrapper = styled(Col)`
 		}
 	}
 `;
-export const StyleNavbar = styled.div<{
+export const Styles = styled.div<{
 	visible: boolean;
 }>`
 	position: fixed;

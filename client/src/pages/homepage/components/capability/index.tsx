@@ -2,7 +2,7 @@ import { RightCircleOutlined } from "@ant-design/icons";
 import { Col, List, Row } from "antd";
 import { useMemo } from "react";
 import useHomePage, { ContentProps } from "../../hooks/useHomePage";
-import { StyleCateItem, StyleCateItemHoverIcon, StyleCol, StyleListItem, StyleWrapper } from "./StyleCapability";
+import { StyleCateItem, StyleCateItemHoverIcon, StyleCol, StyleListItem, StyleWrapper } from "./styles";
 
 type ItemRender = {
 	title?: string;
