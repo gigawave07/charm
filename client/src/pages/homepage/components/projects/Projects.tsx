@@ -1,6 +1,5 @@
 import { Col, Menu, Row } from "antd";
 import React from "react";
-import "./Project.css";
 import useHomePage from "../../hooks/useHomePage";
 import styled from "styled-components";
 import tw from "twin.macro";
