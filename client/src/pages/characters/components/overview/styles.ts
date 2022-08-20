@@ -22,6 +22,9 @@ export const StyleCube = styled.div`
 	margin: 150px auto;
 
 	animation: ${giro} 20s infinite linear;
+	&:hover {
+    animation-play-state: paused;
+	}
 `;
 export const StyleCard = styled.div`
 	height: 290px;
@@ -54,6 +57,10 @@ export const StyleCard = styled.div`
 	&:nth-child(6) {
 		transform: rotateX(-90deg) translateZ(150px);
 	}
+	&:hover {
+		opacity: 1;
+		transition: 0.2s;
+   }
 `;
 export const StyleCardImg = styled.img`
 	width: 290px;
