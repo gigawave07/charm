@@ -3,6 +3,7 @@ import React from "react";
 import HomePage from "../pages/homepage";
 import { Intro, NoPageFound } from "../pages";
 import Characters, { CharactersManagement, CharactersOverview } from "../pages/characters/components";
+import { TeamBuild } from "../pages/characters/components/teambuild";
 
 const HomepageRoute = () => {
 	return (
@@ -13,6 +14,7 @@ const HomepageRoute = () => {
 					<Route index element={<CharactersOverview />} />
 					<Route path="Overview" element={<CharactersOverview />} />
 					<Route path="Management" element={<CharactersManagement />} />
+					<Route path="TeamBuild" element={<TeamBuild />} />
 					<Route path="*" element={<NoPageFound />} />
 				</Route>
 				<Route path="*" element={<NoPageFound />} />

@@ -9,10 +9,10 @@ export const Characters = () => {
 
 	return (
 		<Row>
-			<Col span={isCollapsed ? 2 : 4}>
+			<Col span={isCollapsed ? 1 : 3}>
 				<Sidebar />
 			</Col>
-			<Col span={isCollapsed ? 22 : 20}>
+			<Col span={isCollapsed ? 23 : 21}>
 				<Outlet />
 			</Col>
 		</Row>
