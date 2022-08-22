@@ -27,8 +27,6 @@ export const StyleCube = styled.div`
 	}
 `;
 export const StyleCard = styled.div`
-	height: 290px;
-	width: 290px;
 	position: absolute;
 	border: 5px solid #ccc;
 	opacity: 0.7;
