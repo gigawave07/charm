@@ -1,6 +1,8 @@
 import { Card } from "antd";
+import { Button } from "antd/lib/radio";
 import React from "react";
-import { images } from "../../../../shared/data";
+import { useAppDispatch, useAppSelector } from "../../../../stores";
+import { requestLoadItems } from "./reducer";
 
 const { Meta } = Card;
 type CardViewProps = { img: string; name: string; description: string };
@@ -17,13 +19,20 @@ const CardView = ({ img, name, description }: CardViewProps) => (
 );
 
 export const TeamBuild = () => {
-	const items = images.map(i => ({
+	const dispatch = useAppDispatch();
+
+	const handler = () => {
+		dispatch(requestLoadItems);
+	};
+
+	const items = useAppSelector(state => state.teamBuild.items)?.map(i => ({
 		img: i,
 		name: i.split(".")[0],
 		description: i,
 	}));
 	return (
 		<div className="flex">
+			<Button onClick={handler}>Click</Button>
 			{items.map(i => (
 				<CardView key={i.img} {...i} />
 			))}
