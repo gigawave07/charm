@@ -1,4 +1,4 @@
-import { createSlice, Draft, PayloadAction } from "@reduxjs/toolkit";
+import { createAction, createSlice, Draft, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../../../stores";
 
 export type TeamBuildState = {
@@ -15,9 +15,6 @@ export const teamBuildSlice = createSlice({
 	name: "teamBuildReducer",
 	initialState,
 	reducers: {
-		requestLoadItems: state => {
-			state.loading = !state.loading;
-		},
 		loadedItems: (state: Draft<TeamBuildState>, action: PayloadAction<string[]>) => {
 			console.log(action);
 			state.items = action.payload;
@@ -26,10 +23,17 @@ export const teamBuildSlice = createSlice({
 			state.items = [];
 			console.log(state.items);
 		},
+		requestLoadItems: state => {
+			state.loading = false;
+		},
 	},
 });
 
-export const { requestLoadItems, loadedItems, hideAllItems } = teamBuildSlice.actions;
+export const thunk = (function a() {
+	return { requestLoadItems: createAction("requestLoadItems")() };
+})();
+
+export const { loadedItems, hideAllItems, requestLoadItems } = teamBuildSlice.actions;
 
 export const selectTeamBuildStore = (state: RootState) => state;
 

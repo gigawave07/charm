@@ -2,7 +2,7 @@ import { Card, Row } from "antd";
 import { Button } from "antd/lib/radio";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../../../stores";
-import { hideAllItems, requestLoadItems } from "./reducer";
+import { hideAllItems, thunk } from "./reducer";
 
 const { Meta } = Card;
 type CardViewProps = { img: string; name: string; description: string };
@@ -22,10 +22,11 @@ export const TeamBuild = () => {
 	const dispatch = useAppDispatch();
 
 	const loadAllItems = () => {
-		dispatch(requestLoadItems);
+		console.log(thunk.requestLoadItems);
 	};
 
 	const hideItems = () => {
+		console.log("hide items");
 		dispatch(hideAllItems);
 	};
 
