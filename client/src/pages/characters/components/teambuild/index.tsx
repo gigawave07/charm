@@ -1,8 +1,8 @@
-import { Card } from "antd";
+import { Card, Row } from "antd";
 import { Button } from "antd/lib/radio";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../../../stores";
-import { requestLoadItems } from "./reducer";
+import { hideAllItems, requestLoadItems } from "./reducer";
 
 const { Meta } = Card;
 type CardViewProps = { img: string; name: string; description: string };
@@ -21,8 +21,12 @@ const CardView = ({ img, name, description }: CardViewProps) => (
 export const TeamBuild = () => {
 	const dispatch = useAppDispatch();
 
-	const handler = () => {
+	const loadAllItems = () => {
 		dispatch(requestLoadItems);
+	};
+
+	const hideItems = () => {
+		dispatch(hideAllItems);
 	};
 
 	const items = useAppSelector(state => state.teamBuild.items)?.map(i => ({
@@ -30,12 +34,18 @@ export const TeamBuild = () => {
 		name: i.split(".")[0],
 		description: i,
 	}));
+
 	return (
-		<div className="flex">
-			<Button onClick={handler}>Click</Button>
-			{items.map(i => (
-				<CardView key={i.img} {...i} />
-			))}
+		<div>
+			<Row>
+				<Button onClick={loadAllItems}>Load all items</Button>
+				<Button onClick={hideItems}>Hide all items</Button>
+			</Row>
+			<div className="flex">
+				{items.map(i => (
+					<CardView key={i.img} {...i} />
+				))}
+			</div>
 		</div>
 	);
 };

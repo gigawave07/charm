@@ -2,7 +2,7 @@ import { AnyAction, createListenerMiddleware } from "@reduxjs/toolkit";
 import { loadedItems, requestLoadItems } from "./reducer";
 
 export const fetchItems = async () => {
-	const data = await fetch("http://localhost:4000/fetchTeamBuild", { method: "POST" });
+	const data = await fetch("http://localhost:4000/api/characters/getAllCharacters", { method: "POST" });
 	return data.json();
 };
 

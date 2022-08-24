@@ -14,6 +14,7 @@ import apiRouter from "./routes/api";
 import logger from "jet-logger";
 import { CustomError } from "@shared/errors";
 import { Schema } from "mongoose";
+import charactersRoutes from "./modules/characters/routes";
 
 // Constants
 const app = express();
@@ -78,7 +79,7 @@ mongoose.connect("mongodb://localhost:27017/charmdb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-const CharModel = mongoose.model("Test", new Schema({ name: String }));
+// const CharModel = mongoose.model("Test", new Schema({ name: String }));
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
@@ -86,16 +87,10 @@ db.once("open", function () {
   console.log("Connected successfully");
 });
 
-app.post("/fetchTeamBuild", (_: Request, res: Response) => {
-  res.send([
-    "Maho.jpg",
-    "Kokkoro.jpg",
-    "ChristmasChristina.png",
-    "Hatsune.jpg",
-    "Yui.jpg",
-    "Kyaru.png",
-  ]);
-});
+app.use("/api/characters", charactersRoutes);
+app.get("*", (req, res) =>
+  res.status(404).json({ errors: { body: ["Not found"] } })
+);
 
 // Export here and start in a diff file (for testing).
 export default app;
