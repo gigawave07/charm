@@ -16,25 +16,24 @@ export const teamBuildSlice = createSlice({
 	initialState,
 	reducers: {
 		loadedItems: (state: Draft<TeamBuildState>, action: PayloadAction<string[]>) => {
-			console.log(action);
 			state.items = action.payload;
 		},
 		hideAllItems: (state: Draft<TeamBuildState>) => {
 			state.items = [];
-			console.log(state.items);
 		},
-		requestLoadItems: state => {
-			state.loading = false;
+		deleteAllItems: (state: Draft<TeamBuildState>) => {
+			state.items = [];
 		},
 	},
 });
 
-export const thunk = (function a() {
-	return { requestLoadItems: createAction("requestLoadItems")() };
-})();
+export const thunks = (() => ({
+	requestLoadItems: createAction("teamBuild/requestLoadItems")(),
+	deleteAllItems: createAction("teamBuild/deleteAllItems")(),
+}))();
 
-export const { loadedItems, hideAllItems, requestLoadItems } = teamBuildSlice.actions;
+export const { loadedItems, hideAllItems } = teamBuildSlice.actions;
 
-export const selectTeamBuildStore = (state: RootState) => state;
+export const selectTeamBuildStore = (state: RootState) => state.teamBuild;
 
 export const teamBuildReducer = teamBuildSlice.reducer;

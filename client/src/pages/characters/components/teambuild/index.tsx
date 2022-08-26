@@ -2,7 +2,7 @@ import { Card, Row } from "antd";
 import { Button } from "antd/lib/radio";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../../../stores";
-import { hideAllItems, thunk } from "./reducer";
+import { hideAllItems, thunks, selectTeamBuildStore } from "./reducer";
 
 const { Meta } = Card;
 type CardViewProps = { img: string; name: string; description: string };
@@ -22,15 +22,18 @@ export const TeamBuild = () => {
 	const dispatch = useAppDispatch();
 
 	const loadAllItems = () => {
-		console.log(thunk.requestLoadItems);
+		dispatch(thunks.requestLoadItems);
 	};
 
 	const hideItems = () => {
-		console.log("hide items");
-		dispatch(hideAllItems);
+		dispatch(hideAllItems());
 	};
 
-	const items = useAppSelector(state => state.teamBuild.items)?.map(i => ({
+	const deleteItems = () => {
+		dispatch(thunks.deleteAllItems);
+	};
+
+	const items = useAppSelector(selectTeamBuildStore).items?.map(i => ({
 		img: i,
 		name: i.split(".")[0],
 		description: i,
@@ -41,6 +44,7 @@ export const TeamBuild = () => {
 			<Row>
 				<Button onClick={loadAllItems}>Load all items</Button>
 				<Button onClick={hideItems}>Hide all items</Button>
+				<Button onClick={deleteItems}>Delete all items</Button>
 			</Row>
 			<div className="flex">
 				{items.map(i => (
