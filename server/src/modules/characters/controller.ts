@@ -1,32 +1,27 @@
 import { NextFunction, Request, Response } from "express";
+import { CharacterModel } from "./schema";
 
-const data = [
-  "Maho.jpg",
-  "Kokkoro.jpg",
-  "ChristmasChristina.png",
-  "Hatsune.jpg",
-  "Yui.jpg",
-  "Kyaru.png",
-];
-export const getAllCharacters = (
+export const getAllCharacters = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
+    const data = await CharacterModel.find();
     res.json(data);
   } catch (e: any) {
     next(e);
   }
 };
 
-export const deleteAllCharacters = (
+export const deleteAllCharacters = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    res.json(data.slice(0, 3));
+    await CharacterModel.deleteMany({});
+    res.json([]);
   } catch (e: any) {
     next(e);
   }

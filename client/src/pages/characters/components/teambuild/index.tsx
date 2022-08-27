@@ -5,8 +5,8 @@ import { useAppDispatch, useAppSelector } from "../../../../stores";
 import { hideAllItems, thunks, selectTeamBuildStore } from "./reducer";
 
 const { Meta } = Card;
-type CardViewProps = { img: string; name: string; description: string };
-const CardView = ({ img, name, description }: CardViewProps) => (
+type CardViewProps = { img: string; name: string; skill: string };
+const CardView = ({ img, name, skill }: CardViewProps) => (
 	<Card
 		hoverable
 		className="m-3"
@@ -14,7 +14,7 @@ const CardView = ({ img, name, description }: CardViewProps) => (
 			<img style={{ objectFit: "cover", height: 300, width: 300 }} alt="example" src={`/resources/images/${img}`} />
 		}
 	>
-		<Meta title={name} description={description} />
+		<Meta title={name} description={skill} />
 	</Card>
 );
 
@@ -33,11 +33,7 @@ export const TeamBuild = () => {
 		dispatch(thunks.deleteAllItems);
 	};
 
-	const items = useAppSelector(selectTeamBuildStore).items?.map(i => ({
-		img: i,
-		name: i.split(".")[0],
-		description: i,
-	}));
+	const items = useAppSelector(selectTeamBuildStore).items;
 
 	return (
 		<div>

@@ -10,11 +10,11 @@ const mongoose = require("mongoose");
 import StatusCodes from "http-status-codes";
 import "express-async-errors";
 
-import apiRouter from "./routes/api";
 import logger from "jet-logger";
 import { CustomError } from "@shared/errors";
-import { Schema } from "mongoose";
+import { Connection } from "mongoose";
 import charactersRoutes from "./modules/characters/routes";
+import { setupDB } from "./config/database";
 
 // Constants
 const app = express();
@@ -79,14 +79,13 @@ mongoose.connect("mongodb://localhost:27017/charmdb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-// const CharModel = mongoose.model("Test", new Schema({ name: String }));
 
-const db = mongoose.connection;
+const db: Connection = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log("Connected successfully");
+  setupDB();
 });
-
 app.use("/api/characters", charactersRoutes);
 app.get("*", (req, res) =>
   res.status(404).json({ errors: { body: ["Not found"] } })
