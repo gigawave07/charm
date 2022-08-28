@@ -1,11 +1,6 @@
 import { createAction, createSlice, Draft, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../../../stores";
-
-export type Character = {
-	name: string;
-	img: string;
-	skill: string;
-};
+import { Character } from "@server/modules/characters/models";
 
 export type TeamBuildState = {
 	items: Character[];

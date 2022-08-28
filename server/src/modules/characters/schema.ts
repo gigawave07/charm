@@ -1,24 +1,17 @@
 import mongoose, { Schema } from "mongoose";
+import { Character } from "./models";
 import { isEmpty } from "lodash";
 
-const createCharacter = (name: string, skill: string, img: string) => {
-  return { name, skill, img };
-};
-
 const defaultCharacters = [
-  createCharacter("Maho", "Pew pew", "Maho.jpg"),
-  createCharacter("Kokkoro", "push push", "Kokkoro.jpg"),
-  createCharacter("Christina (Xmas)", "slash", "ChristmasChristina.png"),
-  createCharacter("Hatsune", "pewww brrr", "Hatsune.jpg"),
-  createCharacter("Yui", "slurp slurp", "Yui.jpg"),
-  createCharacter("Kyaru", "reeee reeee", "Kyaru.png"),
+  new Character("Maho", "Pew pew", "Maho.jpg"),
+  new Character("Kokkoro", "push push", "Kokkoro.jpg"),
+  new Character("Christina (Xmas)", "slash", "ChristmasChristina.png"),
+  new Character("Hatsune", "pewww brrr", "Hatsune.jpg"),
+  new Character("Yui", "slurp slurp", "Yui.jpg"),
+  new Character("Kyaru", "reeee reeee", "Kyaru.png"),
 ];
 
-const characterSchema = new Schema({
-  name: String,
-  skill: String,
-  img: String,
-});
+const characterSchema = new Schema(Character);
 export const CharacterModel = mongoose.model("Characters", characterSchema);
 
 export const setupCharacterDB = async () => {
