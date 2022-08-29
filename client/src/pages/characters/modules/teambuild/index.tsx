@@ -11,7 +11,8 @@ const CardView = ({ img, name, skill }: CardViewProps) => (
 		hoverable
 		className="m-3"
 		cover={
-			<img style={{ objectFit: "cover", height: 300, width: 300 }} alt="example" src={`/resources/images/${img}`} />
+			<img style={{ objectFit: "cover", height: 300, width: 300 }} alt="example" src={img} />
+			// <img style={{ objectFit: "cover", height: 300, width: 300 }} alt="example" src={`/resources/images/${img}`} />
 		}
 	>
 		<Meta title={name} description={skill} />
