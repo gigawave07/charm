@@ -20,5 +20,5 @@ export const Characters = () => {
 };
 
 export default Characters;
-export { default as CharactersOverview } from "../components/overview";
-export { default as CharactersManagement } from "../components/management";
+export { default as CharactersOverview } from ".//overview";
+export { default as CharactersManagement } from ".//management";

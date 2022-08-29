@@ -2,8 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import React from "react";
 import HomePage from "../pages/homepage";
 import { Intro, NoPageFound } from "../pages";
-import Characters, { CharactersManagement, CharactersOverview } from "../pages/characters/components";
-import { TeamBuild } from "../pages/characters/components/teambuild";
+import Characters, { CharactersManagement, CharactersOverview } from "../pages/characters/modules";
+import { TeamBuild } from "../pages/characters/modules/teambuild";
 
 const HomepageRoute = () => {
 	return (
