@@ -1,22 +1,18 @@
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
-import path from "path";
 import helmet from "helmet";
 import cors from "cors";
 
-import express, { NextFunction, Request, Response } from "express";
-
-const mongoose = require("mongoose");
-import StatusCodes from "http-status-codes";
+import express from "express";
 import "express-async-errors";
 
 import logger from "jet-logger";
-import { CustomError } from "@shared/errors";
 import { Connection } from "mongoose";
 import charactersRoutes from "./modules/characters/routes";
 import { setupDB } from "./config/database";
 
-// Constants
+import mongoose from "mongoose";
+
 const app = express();
 
 /***********************************************************************************
@@ -40,52 +36,19 @@ if (process.env.NODE_ENV === "production") {
 }
 
 /***********************************************************************************
- *                         API routes and error handling
+ *                         DB Connection
  **********************************************************************************/
-
-// Add api router
-// app.use("/api", apiRouter);
-
-// Error handling
-app.use(
-  (err: Error | CustomError, _: Request, res: Response, __: NextFunction) => {
-    logger.err(err, true);
-    const status =
-      err instanceof CustomError ? err.HttpStatus : StatusCodes.BAD_REQUEST;
-    return res.status(status).json({
-      error: err.message,
-    });
-  }
-);
-
-/***********************************************************************************
- *                                  Front-end content
- **********************************************************************************/
-
-// Set views dir
-const viewsDir = path.join(__dirname, "views");
-app.set("views", viewsDir);
-
-// Set static dir
-const staticDir = path.join(__dirname, "public");
-app.use(express.static(staticDir));
-
-// Serve index.html file
-app.get("*", (_: Request, res: Response) => {
-  res.sendFile("index.html", { root: viewsDir });
-});
-
-mongoose.connect("mongodb://localhost:27017/charmdb", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
+mongoose.connect("mongodb://localhost:27017/charmdb");
 const db: Connection = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error: "));
-db.once("open", function () {
-  console.log("Connected successfully");
+db.on("error", () => logger.err("connection error: "));
+db.once("open", () => {
+  logger.info("DB Connected successfully");
   setupDB();
 });
+
+/***********************************************************************************
+ *                         API routes and error handling
+ **********************************************************************************/
 app.use("/api/characters", charactersRoutes);
 app.get("*", (req, res) =>
   res.status(404).json({ errors: { body: ["Not found"] } })
