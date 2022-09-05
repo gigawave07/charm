@@ -1,11 +1,11 @@
-import { Outlet } from "react-router-dom";
-import React from "react";
-import { Sidebar } from "../../../shared/components";
-import { Col, Row } from "antd";
-import { useAppSelector } from "../../../stores";
+import { Outlet } from "react-router-dom"
+import React from "react"
+import { Sidebar } from "../../../shared/components"
+import { Col, Row } from "antd"
+import { useAppSelector } from "../../../stores"
 
 export const Characters = () => {
-	const isCollapsed = useAppSelector(state => state.sidebar.isCollapsed);
+	const isCollapsed = useAppSelector(state => state.sidebar.isCollapsed)
 
 	return (
 		<Row>
@@ -16,9 +16,9 @@ export const Characters = () => {
 				<Outlet />
 			</Col>
 		</Row>
-	);
-};
+	)
+}
 
-export default Characters;
-export { default as CharactersOverview } from ".//overview";
-export { default as CharactersManagement } from ".//management";
+export default Characters
+export { default as CharactersOverview } from ".//overview"
+export { default as CharactersManagement } from ".//management"

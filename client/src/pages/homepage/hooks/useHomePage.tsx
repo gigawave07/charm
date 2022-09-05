@@ -1,6 +1,6 @@
-import { useCallback } from "react";
-import { Row } from "antd";
-import { StyleConclusion, StyleFirstPart, StyleIntro, StyleSecondPart, StyleSpecializedField } from "../styles";
+import { useCallback } from "react"
+import { Row } from "antd"
+import { StyleConclusion, StyleFirstPart, StyleIntro, StyleSecondPart, StyleSpecializedField } from "../styles"
 
 export type ContentProps = {
 	specializedFields?: string;
@@ -17,7 +17,7 @@ export default function useHomePage() {
 			</span>
 		),
 		[]
-	);
+	)
 	const makeContent = useCallback(({ specializedFields, slogan, introduction, conclusion }: ContentProps) => {
 		return (
 			<>
@@ -34,11 +34,11 @@ export default function useHomePage() {
 					<StyleConclusion>{conclusion}</StyleConclusion>
 				</Row>
 			</>
-		);
-	}, []);
+		)
+	}, [])
 
 	return {
 		makeContent,
 		makeSlogan,
-	};
+	}
 }

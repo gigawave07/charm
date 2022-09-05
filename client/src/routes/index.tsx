@@ -1,9 +1,9 @@
-import { Route, Routes } from "react-router-dom";
-import React from "react";
-import HomePage from "../pages/homepage";
-import { Intro, NoPageFound } from "../pages";
-import Characters, { CharactersManagement, CharactersOverview } from "../pages/characters/modules";
-import { TeamBuild } from "../pages/characters/modules/teambuild";
+import { Route, Routes } from "react-router-dom"
+import React from "react"
+import HomePage from "../pages/homepage"
+import { Intro, NoPageFound } from "../pages"
+import Characters, { CharactersManagement, CharactersOverview } from "../pages/characters/modules"
+import { TeamBuild } from "../pages/characters/modules/teambuild/components"
 
 const HomepageRoute = () => {
 	return (
@@ -20,7 +20,7 @@ const HomepageRoute = () => {
 				<Route path="*" element={<NoPageFound />} />
 			</Route>
 		</Routes>
-	);
-};
+	)
+}
 
-export default HomepageRoute;
+export default HomepageRoute

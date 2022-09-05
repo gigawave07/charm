@@ -1,6 +1,6 @@
-import { Row } from "antd";
-import React, { useState } from "react";
-import { StyleCardImg, StyleCardWrapper, StyleColCardManagement } from "./style";
+import { Row } from "antd"
+import React, { useState } from "react"
+import { StyleCardImg, StyleCardWrapper, StyleColCardManagement } from "./style"
 
 const CharactersManagement = () => {
 
@@ -10,7 +10,7 @@ const CharactersManagement = () => {
 		"ChristmasChristina.png",
 		"Kokkoro.jpg",
 		"img2.jpg",
-		"Maho.jpg"]);
+		"Maho.jpg"])
 
 	return (
 		<Row>
@@ -22,6 +22,6 @@ const CharactersManagement = () => {
 				))}
 			</StyleColCardManagement>
 		</Row>
-	);
-};
-export default CharactersManagement;
+	)
+}
+export default CharactersManagement

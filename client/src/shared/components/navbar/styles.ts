@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Col } from "antd";
+import styled from "styled-components"
+import { Col } from "antd"
 
 export const StyleColNavbarWrapper = styled(Col)`
 	& .ant-menu {
@@ -21,7 +21,7 @@ export const StyleColNavbarWrapper = styled(Col)`
 			color: crimson;
 		}
 	}
-`;
+`
 export const Styles = styled.div<{
 	visible: boolean;
 }>`
@@ -29,7 +29,7 @@ export const Styles = styled.div<{
 	transition: top 0.3s;
 	top: ${({ visible }) => (visible ? "0" : "-60px")};
 	z-index: 2;
-`;
+`
 export const StyleLogoImage = styled.img`
 	height: 80px;
-`;
+`

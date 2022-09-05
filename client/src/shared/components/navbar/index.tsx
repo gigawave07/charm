@@ -1,25 +1,25 @@
-import { Col, Menu, Row } from "antd";
-import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { StyleColNavbarWrapper, StyleLogoImage, Styles } from "./styles";
+import { Col, Menu, Row } from "antd"
+import { Link } from "react-router-dom"
+import React, { useEffect, useState } from "react"
+import { StyleColNavbarWrapper, StyleLogoImage, Styles } from "./styles"
 
-const labels = ["Characters", "Work", "About", "Blog", "Contact"];
+const labels = ["Characters", "Work", "About", "Blog", "Contact"]
 
 const Navbar = () => {
-	const items = labels.map((item, i) => ({ label: item, key: `item-${i}`, path: `/${item}` }));
+	const items = labels.map((item, i) => ({ label: item, key: `item-${i}`, path: `/${item}` }))
 
-	const [prevScrollPos, setPrevScrollPos] = useState(0);
-	const [visible, setVisible] = useState(true);
+	const [prevScrollPos, setPrevScrollPos] = useState(0)
+	const [visible, setVisible] = useState(true)
 	const handleScroll = () => {
-		const currentScrollPos = window.scrollY;
-		setVisible((prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) || currentScrollPos < 10);
-		setPrevScrollPos(currentScrollPos);
-	};
+		const currentScrollPos = window.scrollY
+		setVisible((prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) || currentScrollPos < 10)
+		setPrevScrollPos(currentScrollPos)
+	}
 
 	useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, [prevScrollPos, visible, handleScroll]);
+		window.addEventListener("scroll", handleScroll)
+		return () => window.removeEventListener("scroll", handleScroll)
+	}, [prevScrollPos, visible, handleScroll])
 
 	return (
 		<Row>
@@ -42,7 +42,7 @@ const Navbar = () => {
 				</Styles>
 			</StyleColNavbarWrapper>
 		</Row>
-	);
-};
+	)
+}
 
-export default Navbar;
+export default Navbar

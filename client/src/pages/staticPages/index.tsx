@@ -1,12 +1,12 @@
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom"
 
 const NoPageFound = () => {
-	const { pathname } = useLocation();
+	const { pathname } = useLocation()
 	return (
 		<div>
 			<p>{`There's nothing in ${pathname.slice(1)} tab!`}</p>
 		</div>
-	);
-};
+	)
+}
 
-export default NoPageFound;
+export default NoPageFound

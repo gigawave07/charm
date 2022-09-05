@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../../stores";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { RootState } from "../../../stores"
 
 export type SidebarState = {
 	isCollapsed: boolean;
@@ -7,21 +7,21 @@ export type SidebarState = {
 
 const initialState: SidebarState = {
 	isCollapsed: false,
-};
+}
 
 export const sidebarSlice = createSlice({
 	name: "SidebarReducer",
 	initialState,
 	reducers: {
 		changeSidebarState: (state, action: PayloadAction<boolean>) => {
-			state.isCollapsed = action.payload;
+			state.isCollapsed = action.payload
 		},
 	},
-});
+})
 
-export const { changeSidebarState } = sidebarSlice.actions;
+export const { changeSidebarState } = sidebarSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectSidebarStore = (state: RootState) => state;
+export const selectSidebarStore = (state: RootState) => state
 
-export const sidebarReducer = sidebarSlice.reducer;
+export const sidebarReducer = sidebarSlice.reducer

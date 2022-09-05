@@ -1,5 +1,5 @@
-import Sider from "antd/lib/layout/Sider";
-import styled from "styled-components";
+import Sider from "antd/lib/layout/Sider"
+import styled from "styled-components"
 
 export const StyleSider = styled(Sider)`
 	.ant-menu-item {
@@ -15,4 +15,4 @@ export const StyleSider = styled(Sider)`
 		color: crimson;
 		background: ghostwhite;
 	}
-`;
+`

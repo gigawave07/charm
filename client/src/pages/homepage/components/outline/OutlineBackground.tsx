@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { StyleOutlineBackground, StyleOutlineBackgroundImg, StyleSlider } from "./styles";
-import { shuffle } from "lodash";
+import React, { useState } from "react"
+import { StyleOutlineBackground, StyleOutlineBackgroundImg, StyleSlider } from "./styles"
+import { shuffle } from "lodash"
 
 export function OutlineBackground() {
 	const [state, setState] = useState({
@@ -8,48 +8,48 @@ export function OutlineBackground() {
 		index: 0,
 		needTransition: true,
 		count: 1,
-	});
+	})
 
 	const handleSliderTranslateEnd = () => {
-		const { index, images, count } = state;
+		const { index, images, count } = state
 		const _images =
 			count == images.length
 				? [images[1], ...shuffle(images.slice(2)).concat(images[0])]
-				: [...images.slice(1), images[0]];
+				: [...images.slice(1), images[0]]
 		setState({
 			count: count == images.length ? 1 : count,
 			needTransition: false,
 			index: index - 1,
 			images: _images,
-		});
-	};
+		})
+	}
 
 	const handleNext = () => {
-		const { index, count } = state;
-		const _index = index + 1;
+		const { index, count } = state
+		const _index = index + 1
 		setState({
 			...state,
 			needTransition: true,
 			index: _index,
 			count: count + 1,
-		});
-	};
+		})
+	}
 
-	const timeoutRef = React.useRef(0);
+	const timeoutRef = React.useRef(0)
 
 	function resetTimeout() {
 		if (timeoutRef.current) {
-			clearTimeout(timeoutRef.current);
+			clearTimeout(timeoutRef.current)
 		}
 	}
 
 	React.useEffect(() => {
-		resetTimeout();
+		resetTimeout()
 		timeoutRef.current = setTimeout(() => {
-			handleNext();
-		}, 5000);
-		return () => resetTimeout();
-	}, [state.images]);
+			handleNext()
+		}, 5000)
+		return () => resetTimeout()
+	}, [state.images])
 
 	return (
 		<StyleOutlineBackground>
@@ -63,5 +63,5 @@ export function OutlineBackground() {
 				))}
 			</StyleSlider>
 		</StyleOutlineBackground>
-	);
+	)
 }

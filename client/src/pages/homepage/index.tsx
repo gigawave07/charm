@@ -1,6 +1,6 @@
-import { Outlet } from "react-router-dom";
-import React from "react";
-import { Navbar } from "../../shared/components";
+import { Outlet } from "react-router-dom"
+import React from "react"
+import { Navbar } from "../../shared/components"
 
 const HomePage = () => {
 	return (
@@ -8,11 +8,11 @@ const HomePage = () => {
 			<Navbar />
 			<Outlet />
 		</>
-	);
-};
+	)
+}
 
-export default HomePage;
+export default HomePage
 
-export { default as Overview } from "./components/outline";
-export { default as Capability } from "./components/capability";
-export { default as Projects } from "./components/projects";
+export { default as Overview } from "./components/outline"
+export { default as Capability } from "./components/capability"
+export { default as Projects } from "./components/projects"

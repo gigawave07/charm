@@ -1,11 +1,11 @@
-import { Col, Menu, Row } from "antd";
-import React from "react";
-import useHomePage from "../../hooks/useHomePage";
-import styled from "styled-components";
-import tw from "twin.macro";
+import { Col, Menu, Row } from "antd"
+import React from "react"
+import useHomePage from "../../hooks/useHomePage"
+import styled from "styled-components"
+import tw from "twin.macro"
 
-const slogan = ["Some of our", "recent projects"];
-const labels = ["All", "Branding", "Web Design", "Digital Marketing"];
+const slogan = ["Some of our", "recent projects"]
+const labels = ["All", "Branding", "Web Design", "Digital Marketing"]
 
 const StyleWrapper = styled.div`
 	${tw`grid gap-10 content-center`}
@@ -13,17 +13,17 @@ const StyleWrapper = styled.div`
 	background-image: url("./resources/images/Christina.gif");
 	background-size: cover;
 	background-position: center;
-`;
+`
 const StyleInnerContainer = styled.div`
 	background: rgba(255, 255, 255, 0.8);
 	height: 900px;
 	margin: 0 50px;
 	padding: 50px 0;
-`;
+`
 
 const Projects = () => {
-	const { makeSlogan } = useHomePage();
-	const items = labels.map((item, i) => ({ label: item, key: `item-${i}` }));
+	const { makeSlogan } = useHomePage()
+	const items = labels.map((item, i) => ({ label: item, key: `item-${i}` }))
 	return (
 		<StyleWrapper>
 			<StyleInnerContainer>
@@ -46,7 +46,7 @@ const Projects = () => {
 				</Row>
 			</StyleInnerContainer>
 		</StyleWrapper>
-	);
-};
+	)
+}
 
-export default Projects;
+export default Projects

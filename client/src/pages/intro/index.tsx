@@ -1,4 +1,4 @@
-import { Capability, Overview, Projects } from "../homepage";
+import { Capability, Overview, Projects } from "../homepage"
 
 const Intro = () => {
 	return (
@@ -7,7 +7,7 @@ const Intro = () => {
 			<Capability />
 			<Projects />
 		</>
-	);
-};
+	)
+}
 
-export default Intro;
+export default Intro

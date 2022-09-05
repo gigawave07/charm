@@ -25,6 +25,7 @@
     "react/react-in-jsx-scope": "off",
     "no-use-before-define": "error",
     "unused-imports/no-unused-imports": "error",
-    "no-shadow": "error"
+    "no-shadow": "error",
+    "semi": ["warn", "never"]
   }
 }

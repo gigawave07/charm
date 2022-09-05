@@ -1,8 +1,8 @@
-import { RightCircleOutlined } from "@ant-design/icons";
-import { Col, List, Row } from "antd";
-import { useMemo } from "react";
-import useHomePage, { ContentProps } from "../../hooks/useHomePage";
-import { StyleCateItem, StyleCateItemHoverIcon, StyleCol, StyleListItem, StyleWrapper } from "./styles";
+import { RightCircleOutlined } from "@ant-design/icons"
+import { Col, List, Row } from "antd"
+import { useMemo } from "react"
+import useHomePage, { ContentProps } from "../../hooks/useHomePage"
+import { StyleCateItem, StyleCateItemHoverIcon, StyleCol, StyleListItem, StyleWrapper } from "./styles"
 
 type ItemRender = {
 	title?: string;
@@ -14,28 +14,28 @@ const cateBrand: ItemRender[] = [
 	{ category: "Brand Strategy" },
 	{ category: "Logo & Name" },
 	{ category: "Identity & Collateral" },
-];
+]
 
 const cateDevelopment: ItemRender[] = [
 	{ title: "DEVELOPMENT" },
 	{ category: "eCommerce" },
 	{ category: "Web Development" },
 	{ category: "Mobile Apps" },
-];
+]
 
-const cateMarketing: ItemRender[] = [{ title: "MARKETING" }, { category: "Digital" }, { category: "Market Research" }];
+const cateMarketing: ItemRender[] = [{ title: "MARKETING" }, { category: "Digital" }, { category: "Market Research" }]
 
 const capabilityContent: ContentProps = {
 	conclusion: "Our process",
 	introduction:
 		"By focusing on design as an enabler and putting a huge emphasis on our clients as co-producers, we create innovative, sustainable marketing that enhances brand experience and user engagement.",
 	slogan: ["What are", "we capable of"],
-};
+}
 
 const Capability = () => {
-	const { makeContent } = useHomePage();
+	const { makeContent } = useHomePage()
 	const itemRenderer = (item: ItemRender) => {
-		const isTitle = !!item.title;
+		const isTitle = !!item.title
 		return (
 			<StyleListItem isTitle={isTitle}>
 				<StyleCateItem>{isTitle ? item.title : item.category}</StyleCateItem>
@@ -50,8 +50,8 @@ const Capability = () => {
 					</StyleCateItemHoverIcon>
 				)}
 			</StyleListItem>
-		);
-	};
+		)
+	}
 
 	const capabilityCategory = useMemo(() => {
 		return (
@@ -70,8 +70,8 @@ const Capability = () => {
 					</Col>
 				</Row>
 			</>
-		);
-	}, []);
+		)
+	}, [])
 
 	return (
 		<StyleWrapper>
@@ -86,7 +86,7 @@ const Capability = () => {
 				<StyleCol span={12}>{capabilityCategory}</StyleCol>
 			</Row>
 		</StyleWrapper>
-	);
-};
+	)
+}
 
-export default Capability;
+export default Capability

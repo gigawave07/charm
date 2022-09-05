@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Col, Row } from "antd";
-import { StyleCard, StyleCardImg, StyleCube } from "./styles";
+import React, { useState } from "react"
+import { Col, Row } from "antd"
+import { StyleCard, StyleCardImg, StyleCube } from "./styles"
 
 const CharactersOverview = () => {
 	const [cards, setCards] = useState([
@@ -10,7 +10,7 @@ const CharactersOverview = () => {
 		"Kokkoro.jpg",
 		"img2.jpg",
 		"Maho.jpg",
-	]);
+	])
 
 	return (
 		<Row>
@@ -26,6 +26,6 @@ const CharactersOverview = () => {
 				</StyleCube>
 			</Col>
 		</Row>
-	);
-};
-export default CharactersOverview;
+	)
+}
+export default CharactersOverview

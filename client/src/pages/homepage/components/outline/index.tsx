@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
-import useHomePage, { ContentProps } from "../../hooks/useHomePage";
-import { OutlineBackground } from "./OutlineBackground";
-import { StyleColOverview, StyleColOutlineBackground, Styles } from "./styles";
-import { Row } from "antd";
+import React, { ReactElement } from "react"
+import useHomePage, { ContentProps } from "../../hooks/useHomePage"
+import { OutlineBackground } from "./OutlineBackground"
+import { StyleColOverview, StyleColOutlineBackground, Styles } from "./styles"
+import { Row } from "antd"
 
 const overviewData: ContentProps = {
 	specializedFields: "BRAND, DEV, ECOM, MARKETING",
@@ -10,10 +10,10 @@ const overviewData: ContentProps = {
 	introduction:
 		"We create brand experiences which are memorable and distinct. Our experienced team create and develop brands with personality and resonance.",
 	conclusion: "Let's talk",
-};
+}
 
 const Overview = (): ReactElement => {
-	const { makeContent } = useHomePage();
+	const { makeContent } = useHomePage()
 
 	return (
 		<>
@@ -28,7 +28,7 @@ const Overview = (): ReactElement => {
 				</Row>
 			</Styles>
 		</>
-	);
-};
+	)
+}
 
-export default Overview;
+export default Overview

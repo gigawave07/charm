@@ -1,12 +1,12 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App";
-import "./index.css";
-import { BrowserRouter } from "react-router-dom";
-import { store } from "./stores";
-import { Provider } from "react-redux";
+import React from "react"
+import { createRoot } from "react-dom/client"
+import App from "./App"
+import "./index.css"
+import { BrowserRouter } from "react-router-dom"
+import { store } from "./stores"
+import { Provider } from "react-redux"
 
-const root = createRoot(document.getElementById("root")!);
+const root = createRoot(document.getElementById("root")!)
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
@@ -15,4 +15,4 @@ root.render(
 			</BrowserRouter>
 		</Provider>
 	</React.StrictMode>
-);
+)

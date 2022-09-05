@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components"
 
 const giro = keyframes`
   0% {
@@ -10,7 +10,7 @@ const giro = keyframes`
   100% {
     transform: rotateX(-45deg) rotateY(720deg);
   }
-`;
+`
 export const StyleCube = styled.div`
 	height: 290px;
 	width: 290px;
@@ -25,7 +25,7 @@ export const StyleCube = styled.div`
 	&:hover {
     animation-play-state: paused;
 	}
-`;
+`
 export const StyleCard = styled.div`
 	position: absolute;
 	border: 5px solid #ccc;
@@ -59,8 +59,8 @@ export const StyleCard = styled.div`
 		opacity: 1;
 		transition: 0.2s;
    }
-`;
+`
 export const StyleCardImg = styled.img`
 	width: 290px;
 	height: 290px;
-`;
+`

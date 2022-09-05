@@ -1,37 +1,37 @@
-import { createAction, createSlice, Draft, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../../../stores";
-import { Character } from "@server/modules/characters/models";
+import { createAction, createSlice, Draft, PayloadAction } from "@reduxjs/toolkit"
+import { RootState } from "../../../../stores"
+import { Character } from "@server/modules/characters/models"
 
 export type TeamBuildState = {
-	items: Character[];
-	loading: boolean;
-};
+	items: Character[]
+	loading: boolean
+}
 
 const initialState: TeamBuildState = {
 	items: [] as Character[],
 	loading: false,
-};
+}
 
 export const teamBuildSlice = createSlice({
 	name: "teamBuildReducer",
 	initialState,
 	reducers: {
 		loadedItems: (state: Draft<TeamBuildState>, action: PayloadAction<Character[]>) => {
-			state.items = action.payload;
+			state.items = action.payload
 		},
 		hideAllItems: (state: Draft<TeamBuildState>) => {
-			state.items = [];
+			state.items = []
 		},
 	},
-});
+})
 
 export const thunks = (() => ({
 	requestLoadItems: createAction("teamBuild/requestLoadItems")(),
 	deleteAllItems: createAction("teamBuild/deleteAllItems")(),
-}))();
+}))()
 
-export const { loadedItems, hideAllItems } = teamBuildSlice.actions;
+export const { loadedItems, hideAllItems } = teamBuildSlice.actions
 
-export const selectTeamBuildStore = (state: RootState) => state.teamBuild;
+export const selectTeamBuildStore = (state: RootState) => state.teamBuild
 
-export const teamBuildReducer = teamBuildSlice.reducer;
+export const teamBuildReducer = teamBuildSlice.reducer
