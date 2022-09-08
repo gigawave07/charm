@@ -1,13 +1,19 @@
 import { Card, Row } from "antd"
 import { Button } from "antd/lib/radio"
-import React from "react"
+import React, { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../../../stores"
 import { hideAllItems, selectTeamBuildStore, thunks } from "../reducer"
+import styled from "styled-components"
+import { Character } from "@server/modules/characters/models"
 
 const { Meta } = Card
-type CardViewProps = { img: string; name: string; skill: string };
 
-const CardView = ({ img, name, skill }: CardViewProps) => (
+const StyleCardWrapper = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+`
+
+const CardView = ({ img, name, skill }: Character) => (
 	<Card
 		hoverable
 		className="m-3"
@@ -32,6 +38,10 @@ const OverviewTab = () => {
 		dispatch(thunks.deleteAllItems)
 	}
 
+	useEffect(() => {
+		loadAllItems()
+	}, [])
+
 	const items = useAppSelector(selectTeamBuildStore).items
 	return (
 		<div>
@@ -40,11 +50,11 @@ const OverviewTab = () => {
 				<Button onClick={hideItems}>Hide all items</Button>
 				<Button onClick={deleteItems}>Delete all items</Button>
 			</Row>
-			<div className="flex">
+			<StyleCardWrapper>
 				{items.map(i => (
 					<CardView key={i.img} {...i} />
 				))}
-			</div>
+			</StyleCardWrapper>
 		</div>
 	)
 }

@@ -28,6 +28,7 @@ export const teamBuildSlice = createSlice({
 export const thunks = (() => ({
 	requestLoadItems: createAction("teamBuild/requestLoadItems")(),
 	deleteAllItems: createAction("teamBuild/deleteAllItems")(),
+	createItem: createAction<Character>("teamBuild/createCharacter"),
 }))()
 
 export const { loadedItems, hideAllItems } = teamBuildSlice.actions
