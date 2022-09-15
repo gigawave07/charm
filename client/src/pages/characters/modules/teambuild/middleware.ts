@@ -1,9 +1,8 @@
 import { AnyAction, createListenerMiddleware } from "@reduxjs/toolkit"
 import { loadedItems, thunks } from "./reducer"
 import { getLogger } from "loglevel"
-import { Character } from "@server/modules/characters/models"
 import { RootState } from "../../../../stores"
-import { characterApi } from "./api"
+import {  CharacterService } from "./service"
 
 const logger = getLogger("team build")
 
@@ -15,7 +14,7 @@ listenerMiddleware.startListening({
 		logger.log("fetch items")
 
 		listenerApi.cancelActiveListeners
-		const items = await characterApi.exec(characterApi.getAll)
+		const items = await CharacterService.getAll()
 		listenerApi.dispatch(loadedItems(items))
 	}
 })
@@ -26,7 +25,7 @@ listenerMiddleware.startListening({
 		logger.log("delete items")
 
 		listenerApi.cancelActiveListeners
-		const items = await characterApi.exec(characterApi.deleteAll)
+		const items = await CharacterService.deleteAll()
 		listenerApi.dispatch(loadedItems(items))
 	}
 })
@@ -37,7 +36,7 @@ listenerMiddleware.startListening({
 		logger.log("create items")
 
 		listenerApi.cancelActiveListeners
-		const item = (await characterApi.exec(characterApi.create, action.payload)) as unknown as Character
+		const item = (await CharacterService.create(action.payload))
 		const state = listenerApi.getState()
 		const items = (state as RootState).teamBuild.items.concat(item)
 		listenerApi.dispatch(loadedItems(items))

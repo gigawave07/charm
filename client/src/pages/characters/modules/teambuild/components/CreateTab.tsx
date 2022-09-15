@@ -4,6 +4,7 @@ import styled, { css } from "styled-components"
 import { Character } from "@server/modules/characters/models"
 import { useAppDispatch } from "../../../../../stores"
 import { thunks } from "../reducer"
+import UploadImage from "./UploadImage"
 
 const StyleError = styled.span<{
 	hasError: boolean
@@ -62,10 +63,10 @@ const CreateTab = () => {
 						<Input.TextArea autoSize={{ minRows: 3, maxRows: 5 }} placeholder="Description" {...register("skill")} />
 					</Form.Item>
 					<Form.Item>
-						<Input placeholder="image" {...register("img")} />
+						<UploadImage />
 					</Form.Item>
 					<Form.Item>
-						<Button htmlType="submit">Log in</Button>
+						<Button htmlType="submit">Create</Button>
 					</Form.Item>
 				</Form>
 			</Col>
