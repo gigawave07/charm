@@ -2,6 +2,7 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
+import bodyParser from "body-parser"
 
 import express from "express";
 import "express-async-errors";
@@ -20,8 +21,12 @@ const app = express();
  **********************************************************************************/
 
 // Common middlewares
+/***********************************************************************************
+ *                        Body parser
+ **********************************************************************************/
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 

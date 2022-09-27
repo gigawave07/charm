@@ -52,7 +52,7 @@ const OverviewTab = () => {
 			</Row>
 			<StyleCardWrapper>
 				{items.map(i => (
-					<CardView key={i.img} {...i} />
+					<CardView key={i.name} {...i} />
 				))}
 			</StyleCardWrapper>
 		</div>

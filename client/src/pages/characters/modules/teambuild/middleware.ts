@@ -36,9 +36,10 @@ listenerMiddleware.startListening({
 		logger.log("create items")
 
 		listenerApi.cancelActiveListeners
-		const item = (await CharacterService.create(action.payload))
-		const state = listenerApi.getState()
-		const items = (state as RootState).teamBuild.items.concat(item)
+		const teamBuildState = (listenerApi.getState() as RootState).teamBuild
+		const img = teamBuildState.imageUpload
+		const item = (await CharacterService.create({ ...action.payload, img }))
+		const items = teamBuildState.items.concat(item)
 		listenerApi.dispatch(loadedItems(items))
 	}
 })

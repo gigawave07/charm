@@ -62,6 +62,7 @@
     "build.ts"
   ],
   "dependencies": {
+    "body-parser": "^1.20.0",
     "class-validator": "^0.13.2",
     "command-line-args": "^5.2.1",
     "cookie-parser": "^1.4.6",
